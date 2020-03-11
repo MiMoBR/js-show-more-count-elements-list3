@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  		<title></title>
+
+  		<style type="text/css">
+
+			#datalist div {
+			    border: 1px solid #aaa;
+			}
+			span {
+			    cursor: pointer;
+			    color: #f00;
+			}
+  		</style>
+
+	</head>
+	<body>
+
+		<div id="datalist">
+			<div>dataset1</div>
+			<div>dataset1</div>
+			<div>dataset2</div>
+			<div>dataset2</div>
+			<div>dataset3</div>
+			<div>dataset3</div>
+			<div>dataset4</div>
+			<div>dataset4</div>
+			<div>dataset5</div>
+			<div>dataset5</div>
+		</div>
+		<span>readmore</span>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(function () {
+
+				addStyleString('#datalist div:nth-child(n+3) { display:none;}');/*count in CSS is diferent, if qu want el 1 has to count 1+1 and start with 1, not with 0*/
+
+			    $('span').click(function () {
+			        $('#datalist div:hidden').slice(0, 2).show();
+			        if ($('#datalist div').length == $('#datalist div:visible').length) {
+			            $('span ').hide();
+			        }
+			    });
+			});
+
+			function addStyleString(str) {
+			    var node = document.createElement('style');
+			    node.innerHTML = str;
+			    document.body.appendChild(node);
+			}
+		</script>
+	</body>
+</html>
